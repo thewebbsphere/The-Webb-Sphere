@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --khaki: #F0E68C;
+}
+
+body {
+    animation: fadeInEffect 2.1s ease-in-out; 
+    color: var(--black);
+    scroll-behavior: smooth;
+    background-color: var(--white);
+}
+
+@keyframes fadeInEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/*********** Martius Font ***********/
+
+@font-face {
+    font-family: 'Martius';
+    src: url('./fonts/Martius.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*********** Kangu Font ***********/
+
+@font-face {
+    font-family: 'Kangu';
+    src: url('./fonts/Kangu DEMO.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*********** Navigation Section ***********/
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0 2rem;
+    width: 100%;
+    height: 4.9rem;
+    top: 0;
+    position: sticky;
+    background-color: var(--white);
+    z-index: 1000;
+    color: var(--black);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.navbar-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--black);
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 3.6rem; 
+    width: auto; 
+    display: block;
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-links li {
+    margin: 0 1rem;
+}
+
+.nav-link {
+    font-size: 14px;
+    color: var(--black);
+    text-decoration: none;
+    position: relative;
+    padding: 7px 0;
+    transition: color 0.4s ease-in-out;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background-color: var(--khaki);
+    transition: width 0.4s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.btn-dark-mode {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--black);
+}
+
+/*********** Main Section ***********/
+
+.main-section {
+    display: flex;
+    position: relative;
+    gap: 40px;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
+/* Left Side */
+.left-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns: left and right */
+    gap: 20px; /* Increase spacing between images */
+    align-items: stretch; /* Ensure images align properly */
+    max-width: 800px; /* Limit the width of the left side */
+}
+
+/* Left Column: Large Image */
+.left-column {
+    grid-column: 1; /* Occupies the first column */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.large-image {
+    width: 100%; /* Full width of the column */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image fits nicely */
+}
+
+/* Right Column: Stacked Images */
+.right-column {
+    grid-column: 2; /* Occupies the second column */
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    gap: 20px; /* Increase spacing between stacked images */
+}
+
+.small-image {
+    width: 120%; /* Extend the width of the smaller images */
+    height: calc(50% - 10px); /* Divide height equally between two images */
+    object-fit: cover; /* Ensure the image fits nicely */
+}
+
+/* Fade Effect for Images */
+.dynamic-image {
+    position: relative; /* Needed for the pseudo-element */
+}
+
+.dynamic-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%; /* Adjust the height of the fade effect */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none; /* Ensure it doesn’t interfere with interactions */
+}
+
+/* Right Side */
+.right-side {
+    flex: 1; /* Allow the right side to take up available space */
+    position: relative; /* Needed for positioning the heading */
+    z-index: 2; /* Ensure the heading appears above the images */
+    padding-left: 20px; /* Add spacing between the text and the images */
+}
+
+/* Heading Overlap */
+.main-heading {
+    font-size: 11rem;
+    font-family: 'Martius', sans-serif;
+    font-weight: bold;
+    position: absolute; /* Position the heading */
+    left: -4%; /* Retain overlap for "Graphic Web" */
+    transform: translateY(-50%); /* Center vertically */
+    color: var(--khaki);
+    z-index: 3;
+    display: flex;
+    flex-direction: column; /* Stack "Graphic Web" and "Studio" */
+}
+
+/* "Graphic Web" Styling */
+.graphic-web {
+    color: var(--khaki); /* Retain the khaki color */
+}
+
+.studio {
+    color: var(--black); 
+    align-self: flex-end;
+    margin-right: 20px;
+}
+
+.main-paragraph {
+    margin-top: 250px;
+    margin-left: 4.9rem;
+    padding: 20px;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: var(--black);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-weight: light;
+    text-align: right; 
+    background-color: var(--white);
+    border-radius: 10px;
+    max-width: 70%; 
+}
+
+.main-paragraph-head {
+    color: var(--khaki);
+    font-weight: 900;
+    font-size: 1.4rem;
+}
+
+.cta-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--white);
+    background-color: var(--black);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    float: right;
+    margin-right: 4.9rem; 
+}
+
+img[alt="Graphic-3"] {
+    position: relative; /* Enable positioning adjustments */
+    right: -290px; /* Adjust this value to align with the "S" in "Studio" */
+    top: -149px;
+}
+
+/* Sticky Footer */
+footer {
+    margin: 0;
+    padding: 0;
+	bottom: 0;
+    position: sticky;
+	width: 100%;
+}
+
+.social-icons {
+    display: flex;
+    gap: 70px;
+    position: absolute;
+    bottom: 20px; 
+    left: 70px; 
+}
+
+/* Social Media Icons with Hover Effect */
+.social-icons a {
+    color: var(--black);
+    font-size: 1.5rem;
+    position: relative; /* Needed for the pseudo-element */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 7px;
+    background-color: var(--khaki); 
+    transition: width 0.4s ease-in-out;
+}
+
+.social-icons a:hover::after {
+    width: 100%; 
+}
