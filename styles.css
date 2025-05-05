@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --khaki: #F0E68C;
+}
+
+body {
+    animation: fadeInEffect 2.1s ease-in-out; 
+    color: var(--black);
+    scroll-behavior: smooth;
+    background-color: var(--white);
+}
+
+@keyframes fadeInEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/*********** Martius Font ***********/
+
+@font-face {
+    font-family: 'Martius';
+    src: url('./fonts/Martius.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*********** Kangu Font ***********/
+
+@font-face {
+    font-family: 'Kangu';
+    src: url('./fonts/Kangu DEMO.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*********** Navigation Section ***********/
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0 2rem;
+    width: 100%;
+    height: 15%;
+    top: 0;
+    position: sticky;
+    background-color: var(--white);
+    z-index: 1000;
+    color: var(--black);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.navbar-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--black);
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 3.6rem; 
+    width: auto; 
+    display: block;
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-links li {
+    margin: 0 1rem;
+}
+
+.nav-link {
+    font-size: 14px;
+    color: var(--black);
+    text-decoration: none;
+    position: relative;
+    padding: 7px 0;
+    transition: color 0.4s ease-in-out;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background-color: var(--khaki);
+    transition: width 0.4s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    outline: none;
+    border: 1px solid var(--black);
+    box-shadow: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none;
+    border: 1px solid var(--black);
+    box-shadow: none;
+}
+
+.navbar-collapse {
+    padding: .7rem 0;
+}
+
+.collapse.show {
+    background-color: var(--white);
+    min-height: 210px;
+    padding-bottom: .4rem;
+}
+
+.collapse .nav-link {
+    display: block; 
+    color: var(--black);
+    padding: .7rem 0;
+    text-decoration: none;
+    transition: .7s ease;
+}
+
+/* Sticky Footer */
+footer {
+    margin: 0;
+    padding: 0;
+	bottom: 0;
+    position: sticky;
+	width: 100%;
+}
+
+.social-icons {
+    display: flex;
+    gap: 70px;
+    position: absolute;
+    bottom: 20px; 
+    left: 70px; 
+}
+
+/* Social Media Icons with Hover Effect */
+.social-icons a {
+    color: var(--black);
+    font-size: 1.5rem;
+    position: relative; /* Needed for the pseudo-element */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 7px;
+    background-color: var(--khaki); 
+    transition: width 0.4s ease-in-out;
+}
+
+.social-icons a:hover::after {
+    width: 100%; 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+}
