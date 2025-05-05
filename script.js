@@ -11,6 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Save menu state on toggle
     navbarToggler.addEventListener("click", () => {
         const isCurrentlyOpen = navbarCollapse.classList.contains("show");
-        localStorage.setItem("menuState", isCurrentlyOpen ? "closed" : "open");
+        navbarCollapse.classList.toggle("show", !isCurrentlyOpen);
+        localStorage.setItem("menuState", !isCurrentlyOpen ? "open" : "closed");
+    });
+
+    const navLinks = document.querySelectorAll(".nav-link");
+    const currentPath = window.location.pathname;
+
+    navLinks.forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
+        }
     });
 });
