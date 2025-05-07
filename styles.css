@@ -37,6 +37,8 @@ body {
     color: var(--black);
     scroll-behavior: smooth;
     background-color: var(--white);
+    padding: 0;
+    margin: 0;
 }
 
 .home-page {
@@ -71,7 +73,8 @@ body {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .navbar-logo {
@@ -97,7 +100,7 @@ body {
 }
 
 .navbar-links li {
-    margin: 0 1rem;
+    margin: 0 1.4rem;
 }
 
 .nav-link {
@@ -137,8 +140,13 @@ body {
     box-shadow: none;
 }
 
+.collapse {
+    transition: .4s ease;
+}
+
 .collapse.show {
     background-color: var(--white);
+    padding: 1rem 0;
 }
 
 .collapse .nav-link {
@@ -149,3 +157,4 @@ body {
 }
 
 /*********************************************************************** Main Section ***********************************************************************/
+
