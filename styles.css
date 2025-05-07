@@ -33,10 +33,14 @@
 }
 
 body {
-    animation: fadeInEffect 2.1s ease-in-out; 
+    animation: none;
     color: var(--black);
     scroll-behavior: smooth;
     background-color: var(--white);
+}
+
+.home-page {
+    animation: fadeInEffect 1.4s ease;
 }
 
 @keyframes fadeInEffect {
@@ -112,7 +116,7 @@ body {
     width: 0;
     height: 4px;
     background-color: var(--khaki);
-    transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease;
 }
 
 .nav-link:hover::after,
@@ -143,3 +147,5 @@ body {
     text-decoration: none;
     transition: .7s ease;
 }
+
+/*********************************************************************** Main Section ***********************************************************************/
