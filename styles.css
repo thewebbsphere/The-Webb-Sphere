@@ -1,4 +1,24 @@
+/*********************************************************************** Global Stylesheet for the Website ***********************************************************************/
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*********** Martius Font ***********/
+
+@font-face {
+    font-family: 'Martius';
+    src: url('./fonts/Martius.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*********** Kangu Font ***********/
+
+@font-face {
+    font-family: 'Kangu';
+    src: url('./fonts/Kangu DEMO.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 * {
 	margin: 0;
@@ -28,25 +48,7 @@ body {
     }
 }
 
-/*********** Martius Font ***********/
-
-@font-face {
-    font-family: 'Martius';
-    src: url('./fonts/Martius.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/*********** Kangu Font ***********/
-
-@font-face {
-    font-family: 'Kangu';
-    src: url('./fonts/Kangu DEMO.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/*********** Navigation Section ***********/
+/*********************************************************************** Navigation Bar ***********************************************************************/
 
 .navbar {
     display: flex;
@@ -140,64 +142,4 @@ body {
     color: var(--black);
     text-decoration: none;
     transition: .7s ease;
-}
-
-/* Sticky Footer */
-footer {
-    margin: 0;
-    padding: 0;
-	bottom: 0;
-    position: sticky;
-	width: 100%;
-}
-
-.social-icons {
-    display: flex;
-    gap: 70px;
-    position: absolute;
-    bottom: 20px; 
-    left: 70px; 
-}
-
-/* Social Media Icons with Hover Effect */
-.social-icons a {
-    color: var(--black);
-    font-size: 1.5rem;
-    position: relative; /* Needed for the pseudo-element */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-icons a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0;
-    height: 7px;
-    background-color: var(--khaki); 
-    transition: width 0.4s ease-in-out;
-}
-
-.social-icons a:hover::after {
-    width: 100%; 
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar-links {
-        display: none;
-    }
-
-    .hamburger-menu {
-        display: block;
-    }
-
-    .navbar-toggler {
-        display: block;
-    }
-
-    .navbar-collapse.show {
-        display: block;
-    }
 }
