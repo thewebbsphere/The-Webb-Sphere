@@ -156,5 +156,271 @@ body {
     transition: .7s ease;
 }
 
-/*********************************************************************** Main Section ***********************************************************************/
+/*********************************************************************** Responsive Layout ***********************************************************************/
 
+.main-section {
+    display: flex;
+    position: relative;
+    gap: 40px;
+    margin-top: 36px;
+    margin-left: 36px;
+    justify-content: center;
+    align-items: center;
+    /* Remove background image for desktop */
+    background-size: cover;
+    background-position: center;
+    color: var(--white); /* Ensure text is visible on the background */
+    padding: 20px; /* Add padding to ensure content is within the bg */
+}
+
+.main-section .left-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    align-items: stretch; 
+    max-width: 800px; 
+}
+
+.main-section .left-side .left-column {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.main-section .left-side .left-column .large-image {
+    width: 100%; 
+    height: auto;
+    object-fit: cover;
+}
+
+.main-section .left-side .right-column {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.main-section .left-side .right-column .small-image {
+    width: 120%;
+    height: calc(50% - 10px);
+    object-fit: cover;
+}
+
+.main-section .left-side .dynamic-image {
+    position: relative;
+}
+
+.main-section .left-side .dynamic-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+}
+
+.main-section .right-side {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    padding-left: 20px;
+}
+
+.main-section .right-side .main-heading {
+    font-size: 11rem;
+    font-family: 'Martius', sans-serif;
+    font-weight: bold;
+    position: absolute;
+    left: -4%;
+    transform: translateY(-50%);
+    color: var(--khaki);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.graphic-web {
+    color: var(--khaki);
+    margin-top: 2.1rem;
+}
+
+.studio {
+    color: var(--black); 
+    align-self: flex-end;
+    margin-right: 20px;
+}
+
+.main-paragraph {
+    margin-top: 250px;
+    margin-left: 4.9rem;
+    padding: 20px;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: var(--black);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-weight: light;
+    text-align: right; 
+    background-color: var(--white);
+    border-radius: 10px;
+    max-width: 70%; 
+}
+
+.main-paragraph-head {
+    color: var(--khaki);
+    font-weight: 900;
+    font-size: 1.4rem;
+}
+
+.main-section .right-side .cta-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--white);
+    background-color: var(--black);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    float: right;
+    margin-right: 2.8rem; 
+}
+
+img[alt="Graphic-3"] {
+    position: relative;
+    right: -290px;
+    top: -140px;
+}
+
+.image-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    overflow: hidden; /* Hide images that are not active */
+    width: 100%;
+}
+
+.image-card img {
+    max-width: 80%;
+    height: auto;
+    transition: opacity 1s ease-in-out;
+    opacity: 0; /* Initially hide all images */
+    position: absolute; /* Stack images on top of each other */
+}
+
+.image-card img.active {
+    opacity: 1; /* Show active image */
+    position: relative; /* Bring active image to front */
+}
+
+@media (max-width: 768px) {
+    .main-section {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        margin-top: 20px;
+        gap: 20px;
+        text-align: center; /* Center align text */
+        padding-top: 20px; /* Add padding to top */
+        padding-bottom: 20px; /* Add padding to bottom */
+        background-image: url('./images/Graphic Design-2.png');
+    }
+
+    .main-section .left-side {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin: 0 20px;
+        display: none; /* Hide the left side */
+    }
+
+    .main-section .left-side .left-column,
+    .main-section .left-side .right-column {
+        grid-column: 1;
+    }
+
+    .main-section .left-side .right-column .small-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-section .left-side .left-column .large-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-section .left-side .dynamic-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-section .left-side .left-column .large-image,
+    .main-section .left-side .right-column .small-image {
+        object-fit: cover;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .main-section .right-side {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .main-section .right-side .main-heading {
+        font-size: 4rem;
+        position: relative;
+        transform: none;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .main-section .right-side .main-heading .studio {
+        align-self: center; /* Center the studio title */
+        margin-right: 0; /* Remove right margin */
+        margin-top: 10px; /* Add some spacing */
+        color: var(--black); /* Ensure text is visible */
+    }
+
+    .main-section .right-side .main-paragraph {
+        font-size: 1rem;
+        margin-top: 60px; /* Push the paragraph lower */
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .main-section .right-side .cta-button {
+        float: none;
+        margin: 20px auto;
+        display: block;
+        width: fit-content;
+    }
+
+    .main-section {
+        gap: 20px;
+    }
+
+    .main-section {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-section .right-side .main-heading {
+        font-size: 4rem;
+    }
+
+    .main-section .right-side .main-paragraph {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+/*********************************************************************** About Section ***********************************************************************/
+
+
+/*********************************************************************** Footer ***********************************************************************/
