@@ -171,6 +171,8 @@ body {
     background-position: center;
     color: var(--white); /* Ensure text is visible on the background */
     padding: 20px; /* Add padding to ensure content is within the bg */
+    position: relative;
+    z-index: 1;
 }
 
 .main-section .left-side {
@@ -268,6 +270,7 @@ body {
     text-align: right; 
     background-color: var(--white);
     border-radius: 10px;
+    border: 2.1px solid var(--black);
     max-width: 70%; 
 }
 
@@ -277,47 +280,13 @@ body {
     font-size: 1.4rem;
 }
 
-.main-section .right-side .cta-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--white);
-    background-color: var(--black);
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    float: right;
-    margin-right: 2.8rem; 
-}
-
 img[alt="Graphic-3"] {
     position: relative;
     right: -290px;
     top: -140px;
 }
 
-.image-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    overflow: hidden; /* Hide images that are not active */
-    width: 100%;
-}
-
-.image-card img {
-    max-width: 80%;
-    height: auto;
-    transition: opacity 1s ease-in-out;
-    opacity: 0; /* Initially hide all images */
-    position: absolute; /* Stack images on top of each other */
-}
-
-.image-card img.active {
-    opacity: 1; /* Show active image */
-    position: relative; /* Bring active image to front */
-}
+/* Remove image card styles */
 
 @media (max-width: 768px) {
     .main-section {
@@ -377,13 +346,12 @@ img[alt="Graphic-3"] {
         transform: none;
         text-align: center;
         margin-bottom: 20px;
+        left: 0;
     }
 
     .main-section .right-side .main-heading .studio {
-        align-self: center; /* Center the studio title */
-        margin-right: 0; /* Remove right margin */
-        margin-top: 10px; /* Add some spacing */
-        color: var(--black); /* Ensure text is visible */
+        align-self: center; /* Center the studio title *//* Add some spacing */
+        color: var(--khaki); /* Ensure text is visible */
     }
 
     .main-section .right-side .main-paragraph {
@@ -391,13 +359,15 @@ img[alt="Graphic-3"] {
         margin-top: 60px; /* Push the paragraph lower */
         margin-left: 0;
         max-width: 100%;
+        background-color: opacity .4, var(--black);
+        color: var(--white);
     }
 
     .main-section .right-side .cta-button {
-        float: none;
         margin: 20px auto;
         display: block;
         width: fit-content;
+        border: 1.4px solid var(--khaki);
     }
 
     .main-section {
@@ -417,10 +387,153 @@ img[alt="Graphic-3"] {
     .main-section .right-side .main-paragraph {
         font-size: 0.9rem;
         padding: 10px;
+        margin-top: 0;
     }
 }
 
 /*********************************************************************** About Section ***********************************************************************/
 
+/* Updated About Section Layout */
+.about-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    padding: 40px 20px; /* Add padding to the section */
+}
+
+.about-section .about-content {
+    flex: 1;
+    max-width: calc(50% - 40px); /* Account for padding and margin */
+    padding: 20px;
+    margin-right: 20px; /* Add spacing between content and image */
+    font-family: "Montserrat", sans-serif;
+    color: var(--black);
+}
+
+.about-section .about-content h2 {
+    font-family: "Martius", sans-serif;
+    font-size: 3.6rem;
+    color: var(--khaki);
+    margin-bottom: 4.9rem;
+}
+
+.about-section .about-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-section .about-content .cta-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--black);
+    border: 2.1px solid var(--black);
+    border-radius: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    float: right;
+    margin-right: 2.8rem; 
+}
+
+.about-section .about-image {
+    flex: 1;
+    max-width: 50%;
+    height: auto;
+    background: url('./images/Graphic Design-1.png') no-repeat center center/cover;
+}
+
+.about-section.visible {
+    opacity: 1; /* Fully visible */
+    transform: none; /* Reset transform */
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-section .about-photo {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .about-section .about-content {
+        max-width: 100%;
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*********************************************************************** Testimonials Section ***********************************************************************/
+
+.testimonials-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    font-family: 'Martius', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.testimonials-container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    gap: 20px;
+    justify-content: center;
+}
+
+.testimonial {
+    flex: 0 0 300px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+    color: #555;
+    text-align: left;
+}
+
+.testimonial span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Animation for Testimonials */
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.testimonials-container {
+    animation: slide 20s linear infinite;
+}
 
 /*********************************************************************** Footer ***********************************************************************/
