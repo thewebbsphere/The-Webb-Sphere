@@ -400,16 +400,18 @@ img[alt="Graphic-3"] {
     align-items: center;
     justify-content: space-between;
     height: auto;
-    padding: 40px 20px; /* Add padding to the section */
+    padding: 40px 20px;
+    border-bottom: 21px solid var(--khaki);
 }
 
 .about-section .about-content {
     flex: 1;
     max-width: calc(50% - 40px); /* Account for padding and margin */
-    padding: 20px;
-    margin-right: 20px; /* Add spacing between content and image */
+    margin: 0 210px; /* Add spacing between content and image */
     font-family: "Montserrat", sans-serif;
     color: var(--black);
+
+    border-right: 2.1px solid var(--black);
 }
 
 .about-section .about-content h2 {
@@ -417,16 +419,19 @@ img[alt="Graphic-3"] {
     font-size: 3.6rem;
     color: var(--khaki);
     margin-bottom: 4.9rem;
+    margin-left: -210px;
+    padding-left: 14px;
+    border-bottom: 2.1px solid var(--black);
 }
 
 .about-section .about-content p {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 20px;
+    margin-left: -21px;
 }
 
 .about-section .about-content .cta-button {
-    margin-top: 20px;
     padding: 10px 20px;
     font-size: 1.2rem;
     font-weight: bold;
@@ -437,14 +442,11 @@ img[alt="Graphic-3"] {
     transition: background-color 0.3s ease;
     text-align: center;
     float: right;
-    margin-right: 2.8rem; 
-}
-
-.about-section .about-image {
-    flex: 1;
-    max-width: 50%;
-    height: auto;
-    background: url('./images/Graphic Design-1.png') no-repeat center center/cover;
+    margin-right: -11.5rem;
+    margin-bottom: 2.1rem;
+    animation: 
+        bounce 2s linear infinite, 
+        buttonStyleChange 2s linear infinite;
 }
 
 .about-section.visible {
@@ -480,60 +482,92 @@ img[alt="Graphic-3"] {
     }
 }
 
+/* Keyframes for the bounce animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-49px);
+    }
+    60% {
+        transform: translateY(-7px);
+    }
+}
+
+/* Keyframes for the style change animation */
+@keyframes buttonStyleChange {
+    0% {
+        background-color: transparent;
+        color: var(--black);
+    }
+    50% {
+        background-color: var(--khaki);
+        color: var(--black);
+    }
+    100% {
+        background-color: transparent;
+        color: var(--black);
+    }
+}
+
 /*********************************************************************** Testimonials Section ***********************************************************************/
 
 .testimonials-section {
     padding: 50px 20px;
-    background-color: #f9f9f9;
+    background-color: var(--black);
     text-align: center;
+    overflow: hidden;
 }
 
 .testimonials-section h2 {
     font-family: 'Martius', sans-serif;
     font-size: 2.5rem;
     margin-bottom: 30px;
-    color: #333;
+    color: var(--khaki);
 }
 
+/* Center the testimonials container and adjust its width */
 .testimonials-container {
     display: flex;
-    overflow: hidden;
+    justify-content: flex-start; /* Align testimonials to start */
+    align-items: center;
+    width: 50%; /* Set width to half the section */
+    margin: 0 auto; /* Center the container horizontally */
+    overflow: hidden; /* Hide overflowing testimonials */
     position: relative;
-    gap: 20px;
-    justify-content: center;
 }
 
 .testimonial {
-    flex: 0 0 300px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: 'Montserrat', sans-serif;
-    color: #555;
-    text-align: left;
+    flex: 0 0 100%; /* Each testimonial takes full width of the container */
+    text-align: center;
+    transition: transform 0.7s ease-in-out;
+}
+
+/* Keyframes for animating individual testimonials */
+@keyframes slideTestimonials {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Move off-screen to the left */
+    }
+}
+
+/* Apply animation to individual testimonials */
+.testimonial {
+    animation: slideTestimonials 20s linear infinite;
 }
 
 .testimonial span {
     display: block;
     margin-top: 10px;
     font-weight: bold;
-    color: #333;
+    color: var(--white);
 }
 
-/* Animation for Testimonials */
-@keyframes slide {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-.testimonials-container {
-    animation: slide 20s linear infinite;
+.testimonial p {
+    color: var(--white);
 }
 
 /*********************************************************************** Footer ***********************************************************************/
