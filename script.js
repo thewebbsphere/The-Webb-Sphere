@@ -36,6 +36,21 @@ function handleScroll() {
 
 window.addEventListener('scroll', handleScroll);
 
+// Footer fade-in animation on scroll
+function handleFooterVisibility() {
+    const footer = document.querySelector('.site-footer');
+    if (!footer) return;
+    const rect = footer.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < windowHeight - 40) {
+        footer.classList.add('visible');
+    } else {
+        footer.classList.remove('visible');
+    }
+}
+window.addEventListener('scroll', handleFooterVisibility);
+window.addEventListener('load', handleFooterVisibility);
+
 // Adjust window.onload to remove stacking effect logic
 window.onload = () => {
     adjustLayout();
