@@ -234,7 +234,6 @@ body {
 
 .main-section .right-side .main-heading {
     font-size: 11rem;
-    font-family: 'Martius', sans-serif;
     font-weight: bold;
     position: absolute;
     left: -4%;
@@ -247,12 +246,14 @@ body {
 
 .graphic-web {
     color: var(--khaki);
+    font-family: 'Martius', sans-serif;
     margin-top: 2.1rem;
 }
 
 .studio {
     color: var(--black); 
     align-self: flex-end;
+    font-family: 'Kangu', sans-serif;
     margin-right: 20px;
 }
 
@@ -540,7 +541,6 @@ img[alt="Graphic-3"] {
     color: var(--black);
 }
 
-/* Hide separator images and mobile-only elements on desktop */
 .separator-image,
 .main-section .right-side .cta-button {
     display: none;
@@ -598,13 +598,13 @@ img[alt="Graphic-3"] {
         text-align: left;
         letter-spacing: 1;
         line-height: 24px;
-        padding: 10px; /* Add padding for spacing */
-        background-color: var(--black); /* Set background color */
-        color: var(--white); /* Set text color */
-        width: 100%; /* Make it occupy the full width */
-        margin-top: 14rem; /* Add spacing below the heading */
-        border-radius: 0; /* Remove border radius for a cleaner look */
-        border: none; /* Remove border */
+        padding: 10px;
+        background-color: var(--black);
+        color: var(--white);
+        width: 100%;
+        margin-top: 14rem;
+        border-radius: 0;
+        border: none;
         margin-left: 0;
     }
 
@@ -624,8 +624,8 @@ img[alt="Graphic-3"] {
     }
 
     .main-section .right-side .cta-button:hover {
-        background-color: var(--black); /* Change background color on hover */
-        color: var(--khaki); /* Change text color on hover */
+        background-color: var(--black);
+        color: var(--khaki);
     }
 
     .about-section {
@@ -674,7 +674,7 @@ img[alt="Graphic-3"] {
 
     .about-section .about-image {
         margin: 20px 0;
-        border: 2.1rem solid var(--white); /* Match separator-image border */
+        border: 2.1rem solid var(--white);
         box-sizing: border-box;
         width: 100%;
         display: block;
@@ -783,9 +783,196 @@ img[alt="Graphic-3"] {
 }
 
 @media (max-width: 768px) {
-    /* Show separator images and mobile/tablet-only elements on mobile/tablet */
     .separator-image,
     .main-section .right-side .cta-button {
         display: block;
+    }
+}
+
+/*********************************************************************** Commitment Section ***********************************************************************/
+
+.card {
+    border: none;
+    margin-bottom: 21px;
+    transition: transform 0.4s ease, border-radius 0.3s ease;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    border-radius: 10px;
+    box-shadow: 5px 2.5px 5px -2px var(--khaki);
+}
+
+.card-body {
+    padding: 1rem;
+    border: 1.4px solid var(--khaki);
+}
+
+.card-title {
+    text-align: left;
+    font-size: 2.1rem;
+    font-family: 'Kangu', sans-serif;
+    text-transform: uppercase;
+}
+
+.card-subtitle {
+    text-align: center;
+    text-decoration: overline;
+    letter-spacing: 1.4px;
+    word-spacing: 1.4px;
+    opacity: .7;
+    padding: 0.5rem 0;
+}
+
+.about-header {
+    text-align: center;
+    font-family: 'Martius', sans-serif;
+    display: block;
+    font-size: 3.6rem;
+    opacity: .5;
+    border-bottom: 1.4px solid var(--khaki);
+    margin: 2.1rem 0;
+    padding: 2.1rem 0;
+}
+
+.about-header-span {
+    color: var(--black);
+    font-family: 'Kangu', sans-serif;
+    font-size: 2.1rem;
+    margin-right: 14px;
+}
+
+.about-row {
+    border-bottom: 1.4px solid var(--khaki);
+    padding: 2.1rem 0;
+}
+
+.card-text {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.4rem 0;
+}
+
+/*********************************************************************** Duties Section ***********************************************************************/
+
+.duties {
+    height: 70vh;
+}
+
+.duties-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    text-decoration: overline;
+    margin: 0;
+}
+
+.duties-subtitle {
+    font-family: 'Martius', sans-serif;
+    font-size: 4.9rem;
+    margin-bottom: 1.4rem;
+    color: var(--khaki);
+}
+
+.phase-indicator {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--khaki);
+    color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.phase-number {
+    font-weight: bold;
+}
+
+/* Center content within columns */
+.col-md-6 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* Duties Section Styles */
+.timeline {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.timeline hr {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    border: none;
+    border-top: 2px solid var(--khaki);
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.timeline-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.phase-container {
+    position: relative; /* Make phase container relative */
+}
+
+.phase-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--khaki);
+    color: var(--black);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.phase-button:hover {
+    background-color: var(--black);
+    color: var(--khaki);
+}
+
+.phase-details {
+    display: none;
+    position: absolute; /* Position details absolutely */
+    top: 100%; /* Position below the button */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    margin-top: 10px;
+    width: 200px; /* Adjust width as needed */
+    padding: 10px;
+    background-color: rgba(240, 230, 140, 0.9); /* Semi-transparent khaki */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
