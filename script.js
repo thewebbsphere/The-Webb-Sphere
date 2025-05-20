@@ -56,3 +56,23 @@ window.onload = () => {
     adjustLayout();
 };
 window.addEventListener('resize', adjustLayout);
+
+// Show phase details on button hover
+const phaseButtons = document.querySelectorAll('.phase-button');
+
+phaseButtons.forEach(button => {
+    button.addEventListener('mouseover', () => {
+        // Hide all phase details
+        document.querySelectorAll('.phase-details').forEach(detail => {
+            detail.style.maxHeight = '0';
+            detail.style.display = 'none';
+        });
+
+        // Show the selected phase details
+        const phaseDetails = button.nextElementSibling;
+        if (phaseDetails) {
+            phaseDetails.style.display = 'block';
+            phaseDetails.style.maxHeight = '500px'; /* Adjust as needed */
+        }
+    });
+});
