@@ -857,21 +857,80 @@ img[alt="Graphic-3"] {
 /*********************************************************************** Duties Section ***********************************************************************/
 
 .duties {
-    height: 70vh;
+    height: 100vh;
+    margin: 7rem 0;
+}
+
+.col-md-6 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
 }
 
 .duties-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Kangu', sans-serif;
     font-size: 2.8rem;
-    text-decoration: overline;
-    margin: 0;
+    margin-left: 14rem;
+    text-transform: uppercase;
+    opacity: .4;
 }
 
 .duties-subtitle {
     font-family: 'Martius', sans-serif;
+    border-bottom: 2.1px solid var(--black);
     font-size: 4.9rem;
     margin-bottom: 1.4rem;
+    margin-right: 7rem;
     color: var(--khaki);
+}
+
+.duties-head {
+    display: none;
+}
+
+.timeline {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.timeline hr {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 75%;
+    border: none;
+    margin: 0 14rem;
+    border-top: .7rem solid var(--khaki);
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.timeline-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+.phase-details {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); 
+    margin-top: 10px;
+    width: 420px; 
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 2.1px solid var(--black);
+    z-index: 2;
+    max-height: 400px; /* Increased max-height */
+    overflow-y: auto; /* Changed overflow to auto for vertical scrolling */
+    transition: max-height 0.3s ease;
 }
 
 .phase-indicator {
@@ -889,44 +948,57 @@ img[alt="Graphic-3"] {
 .phase-number {
     font-weight: bold;
 }
-
-/* Center content within columns */
-.col-md-6 {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align items to the top */
+.phase-title {
+    font-size: 28px;
+    padding: 4.5px;
+    background: linear-gradient(to left, var(--khaki), var(--black));
+    border-radius: 7px;
+    width: 75%;
+    background-size: 200% auto;
+    color: var(--white);
+    transition: background-position 3s ease-in-out, color 0.3s ease;
 }
 
-/* Duties Section Styles */
-.timeline {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+.phase-title:hover {
+    background-position: -100% center;
+    color: var(--white);
 }
 
-.timeline hr {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    border: none;
-    border-top: 2px solid var(--khaki);
-    transform: translateY(-50%);
-    z-index: 0;
+.phase-details .phase-title i {
+    float: left;
+    font-size: 21px;
+    padding: 7px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.timeline-buttons {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    position: relative;
-    z-index: 1;
+.phase-details .phase-title i:hover {
+    color: var(--khaki);
+    background-color: var(--black);
+    border-radius: 7px;
+}
+
+.phase-container .phase-details .phase-list .fa-arrow-right {
+    padding-right: 7px;
+    font-size: 16px;
 }
 
 .phase-container {
-    position: relative; /* Make phase container relative */
+    position: relative;
+}
+
+.phase-list {
+    list-style: none;
+    margin-top: 7px;
+}
+
+.phase-list li {
+    font-size: 25px;
+    font-family: 'Kangu', sans-serif;
+    text-transform: uppercase;
+}
+
+.phase-list p {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .phase-button {
@@ -939,7 +1011,7 @@ img[alt="Graphic-3"] {
     cursor: pointer;
     font-weight: bold;
     font-size: 1.2rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.7s ease, width 0.7s ease, height 0.7s ease;
     position: relative;
     z-index: 1;
 }
@@ -947,24 +1019,8 @@ img[alt="Graphic-3"] {
 .phase-button:hover {
     background-color: var(--black);
     color: var(--khaki);
-}
-
-.phase-details {
-    display: none;
-    position: absolute; /* Position details absolutely */
-    top: 100%; /* Position below the button */
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    margin-top: 10px;
-    width: 200px; /* Adjust width as needed */
-    padding: 10px;
-    background-color: rgba(240, 230, 140, 0.9); /* Semi-transparent khaki */
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 2;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    width: 49px;
+    height: 49px;
 }
 
 @keyframes fadeIn {
