@@ -1521,11 +1521,6 @@ img[alt="Graphic-3"] {
     }
 }
 
-/* Prevent footer from showing */
-.site-footer {
-    display: none !important;
-}
-
 /* --- CONTACT FORM THEME STYLES --- */
 .contact-form label {
     font-family: 'Martius', 'Montserrat', sans-serif;
