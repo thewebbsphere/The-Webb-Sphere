@@ -31,12 +31,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-links navbar-nav">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link active">
+                    <a href="index.html" class="nav-link">
                         HOME
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="About-Us.html" class="nav-link">
+                    <a href="About-Us.html" class="nav-link active">
                         OUR AGENCY
                     </a>
                 </li>
@@ -211,7 +211,8 @@
     <div class="container-fluid duties">
         <h4 class="duties-title text-start">What we do best</h4>
         <h2 class="duties-subtitle text-center">Our Process</h2>
-        <div class="timeline">
+        <!-- Desktop/large screen timeline -->
+        <div class="timeline d-none d-lg-flex">
             <hr>
             <div class="timeline-buttons">
                 <div class="phase-container">
@@ -222,7 +223,6 @@
                         <h5 class="phase-title text-center">
                             <i class="fas fa-lightbulb"></i>
                             PLANNING
-                            <span class="chevron"><i class="fas fa-chevron-down"></i></span>
                         </h5>
                         <ul class="phase-list">
                             <li>
@@ -262,7 +262,6 @@
                         <h5 class="phase-title text-center">
                             <i class="fas fa-paint-brush"></i>
                             DESIGN
-                            <span class="chevron"><i class="fas fa-chevron-down"></i></span>
                         </h5>
                         <ul class="phase-list">
                             <li>
@@ -302,7 +301,6 @@
                         <h5 class="phase-title text-center">
                             <i class="fas fa-code"></i>
                             DEVELOPMENT
-                            <span class="chevron"><i class="fas fa-chevron-down"></i></span>
                         </h5>
                         <ul class="phase-list">
                             <li>
@@ -329,7 +327,6 @@
                         <h5 class="phase-title text-center">
                             <i class="fas fa-cogs"></i>
                             DEPLOYMENT
-                            <span class="chevron"><i class="fas fa-chevron-down"></i></span>
                         </h5>
                         <ul class="phase-list">
                             <li>
@@ -351,7 +348,57 @@
                     </div>
                 </div>
             </div>
-
+        </div>
+        <!-- Mobile/Tablet static phases -->
+        <div class="duties-mobile d-block d-lg-none">
+            <div class="phase-details mb-4" style="position:static;display:block;box-shadow:none;max-height:none;width:100%;border:2.1px solid var(--black);">
+                <h5 class="phase-title text-center"><i class="fas fa-lightbulb"></i> PLANNING</h5>
+                <ul class="phase-list">
+                    <li><i class="fas fa-arrow-right"></i> RESEARCH</li>
+                    <p class="text-start">We begin by understanding your business goals, target audience, and market trends. This foundational research ensures that our strategy aligns with your vision.</p>
+                    <li><i class="fas fa-arrow-right"></i> Strategy</li>
+                    <p class="text-start">Based on our research, we develop a comprehensive strategy that outlines the project scope, objectives, and key performance indicators (KPIs) to measure success.</p>
+                    <li><i class="fas fa-arrow-right"></i> Wireframes</li>
+                    <p class="text-start">We create wireframes to visualize the layout and structure of your website. This blueprint serves as a guide for the design and development phases, ensuring a user-friendly experience.</p>
+                    <li><i class="fas fa-arrow-right"></i> Content</li>
+                    <p class="text-start">Our team collaborates with you to gather and create compelling content that resonates with your audience, enhancing engagement and driving conversions.</p>
+                </ul>
+            </div>
+            <div class="phase-details mb-4" style="position:static;display:block;box-shadow:none;max-height:none;width:100%;border:2.1px solid var(--black);">
+                <h5 class="phase-title text-center"><i class="fas fa-paint-brush"></i> DESIGN</h5>
+                <ul class="phase-list">
+                    <li><i class="fas fa-arrow-right"></i> Visual Design</li>
+                    <p class="text-start">Our designers craft a visually appealing aesthetic that reflects your brand identity. We focus on color schemes, typography, and imagery to create a cohesive look.</p>
+                    <li><i class="fas fa-arrow-right"></i> Mockups</li>
+                    <p class="text-start">We develop detailed mockups that showcase the website's design elements and layout. This step allows for feedback and adjustments before moving to the next phase.</p>
+                    <li><i class="fas fa-arrow-right"></i> Prototyping</li>
+                    <p class="text-start">Interactive prototypes are created to simulate user interactions. This helps us identify usability issues and refine the user experience before development begins.</p>
+                    <li><i class="fas fa-arrow-right"></i> User Interface</li>
+                    <p class="text-start">We design intuitive user interfaces that facilitate seamless navigation and interaction, ensuring that visitors can easily find what they need.</p>
+                </ul>
+            </div>
+            <div class="phase-details mb-4" style="position:static;display:block;box-shadow:none;max-height:none;width:100%;border:2.1px solid var(--black);">
+                <h5 class="phase-title text-center"><i class="fas fa-code"></i> DEVELOPMENT</h5>
+                <ul class="phase-list">
+                    <li><i class="fas fa-arrow-right"></i> Front-end</li>
+                    <p>Our developers bring the design to life by coding the front-end of the website. This includes creating responsive layouts and ensuring compatibility across devices and browsers.</p>
+                    <li><i class="fas fa-arrow-right"></i> Back-end</li>
+                    <p>We build the back-end infrastructure that powers your website, including server-side logic, APIs, and integrations with third-party services to enhance functionality.</p>
+                    <li><i class="fas fa-arrow-right"></i> Database</li>
+                    <p>Our team sets up a robust database to securely store and manage your data. This ensures efficient data retrieval and management for a smooth user experience.</p>
+                </ul>
+            </div>
+            <div class="phase-details mb-4" style="position:static;display:block;box-shadow:none;max-height:none;width:100%;border:2.1px solid var(--black);">
+                <h5 class="phase-title text-center"><i class="fas fa-cogs"></i> DEPLOYMENT</h5>
+                <ul class="phase-list">
+                    <li><i class="fas fa-arrow-right"></i> Testing</li>
+                    <p>Before launch, we conduct thorough testing to identify and fix any bugs or issues. This includes functionality, usability, and performance testing to ensure a flawless experience.</p>
+                    <li><i class="fas fa-arrow-right"></i> Launch</li>
+                    <p>Once testing is complete, we launch your website, making it live for your audience. Our team monitors the launch to address any immediate concerns.</p>
+                    <li><i class="fas fa-arrow-right"></i> Maintenance</li>
+                    <p>Post-launch, we provide ongoing maintenance and support to keep your website running smoothly. This includes regular updates, security checks, and performance optimization.</p>
+                </ul>
+            </div>
         </div>
     </div>
     <!-- Quote Section -->
