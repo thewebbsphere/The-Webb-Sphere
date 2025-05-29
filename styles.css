@@ -73,7 +73,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px -8px var(--khaki);
     overflow: hidden;
 }
 
@@ -925,13 +925,43 @@ img[alt="Graphic-3"] {
   }
 }
 
+@media (max-width: 991.98px) {
+  .timeline hr {
+    display: none;
+  }
+
+  .timeline-buttons .phase-container .phase-button {
+    display: none;
+  }
+
+  .timeline-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phase-details {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+  }
+
+  .phase-details:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .phase-title {
+    transition: none;
+  }
+}
+
 /*********************************************************************** Commitment Section ***********************************************************************/
 
 .card {
     border: none;
     margin-bottom: 21px;
     transition: transform 0.4s ease, border-radius 0.3s ease;
-    margin-left: 10px;
+    margin-left: 21px;
     margin-right: 10px;
 }
 
@@ -1182,235 +1212,507 @@ img[alt="Graphic-3"] {
     transition: ease-in;
 }
 
-@media (max-width: 991.98px) {
-  .timeline-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
-    width: 100%;
-  }
-  .phase-container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    width: 100%;
-  }
-  .phase-button {
-    margin-bottom: 0;
-    margin-right: 1rem;
-    min-width: 44px;
-    min-height: 44px;
-    font-size: 1.2rem;
-  }
-  .phase-details {
-    flex: 1;
-    margin-left: 0;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-    padding-top: 0;
-    width: 100%;
-    max-width: 100%;
-  }
-  .timeline hr {
-    display: none;
-  }
+/* Highlight active category card */
+.service-category-card.active {
+    border: 2px solid #0d6efd;
+    box-shadow: 0 0 20px rgba(13,110,253,0.1);
+    background: #f0f8ff;
 }
 
-@media (max-width: 991.98px) {
-  .timeline-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.7rem;
-    width: 100%;
-    padding: 0;
-  }
-  .phase-container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    width: 100%;
-    background: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 0.7rem;
-  }
-  .phase-button {
-    min-width: 36px;
-    min-height: 36px;
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-    border-radius: 50%;
-    background: var(--khaki);
-    color: var(--black);
-    border: none;
-    margin: 0.3rem 0.7rem 0.3rem 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
-    transition: background 0.2s, color 0.2s;
-    flex-shrink: 0;
-  }
-  .phase-button:focus, .phase-button.active {
-    background: var(--black);
-    color: var(--khaki);
-    outline: none;
-  }
-  .phase-details {
-    flex: 1;
-    margin: 0;
-    padding: 0.2rem 0 0.2rem 0.7rem;
-    font-size: 0.97rem;
-    background: none;
-    border-left: 2px solid var(--khaki);
-    border-radius: 0 8px 8px 0;
-    box-shadow: none;
-    max-width: 100%;
-  }
-  .phase-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-  }
-  .phase-list li {
-    font-size: 0.98rem;
-    margin-bottom: 0.2rem;
-  }
-  .phase-list p {
-    font-size: 0.93rem;
-    margin-bottom: 0.3rem;
-  }
-  .timeline hr {
-    display: none;
-  }
+/* Fade-in animation for cards */
+.fade-in {
+    animation: fadeIn 0.5s;
 }
-@media (max-width: 991.98px) {
-  .timeline {
-    flex-direction: column;
-    align-items: stretch;
-    min-height: unset;
-  }
-  .timeline-buttons {
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/*********************************************************************** SERVICE PAGE ***********************************************************************/
+/*********************************************************************** Service Categories Section ***********************************************************************/
+
+.service-categories {
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.7rem;
-    width: 100%;
-    padding: 0;
-  }
-  .phase-container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    background: var(--white);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 49px 0;
+    border-left: 4px solid var(--khaki);
+}
+.service-category-card {
+    background-color: var(--white);
+    border: 1px solid var(--black);
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 0.7rem;
-    position: static;
-    overflow: hidden;
-  }
-  .phase-title {
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-categories .service-link {
+    font-family: 'Martius', sans-serif;
+    font-size: 27px;
+    color: var(--khaki);
+    padding: 1px 170px;
+    border: none;
+}
+
+.service-categories .service-link .service-icon {
+    font-size: 27px;
+    font-weight: light;
+    color: var(--khaki);
+    padding: 0 69px;
+}
+
+.service-categories .web-dev, 
+.graph-d {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.service-categories .web-dev-icon, 
+.graph-d-icon {
+    font-size: 36px;
+}
+
+.service-categories .web-dev .web-dev-head,
+.graph-d .graph-d-head {
+    font-size: 21px;
+    padding: 14px 0;
+}
+
+.service-categories .web-dev .web-dev-text,
+.graph-d-text {
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: .7px;
+    color: var(--black);
+}
+
+.values {
+    padding: 140px 0;
+    border-top-right-radius: 14px;
+    border-top: 4px solid var(--khaki);
+    border-right: 4px solid var(--khaki);
+}
+
+.values .values-right {
+    width: 760px;
+}
+
+.values .values-head {
+    font-family: 'Martius', sans-serif;
+    font-size: 3.6rem;
+    color: var(--khaki);
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: -150px;
+}
+
+.values .values-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--black);
+    text-align: center;
+    max-width: 800px;
+    padding: 130px 14px;
+    margin: 0 auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.values .values-text:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 8px 24px -8px var(--khaki);
+}
+
+.values-accordion {
+    border: 1.4px solid var(--khaki);
+}
+
+/* Override Bootstrap accordion open background to khaki */
+.values .accordion-button:not(.collapsed) {
+    background-color: var(--khaki) !important;
+    color: var(--black) !important;
+    box-shadow: none;
+}
+.values .accordion-button:focus {
+    box-shadow: none;
+}
+
+/*********************************************************************** Portfolio Section ***********************************************************************/
+
+
+.portfolio {
+    padding: 63px 0;
+    border-right: 4px solid var(--khaki);
+}
+
+.portfolio-row {
+    margin-right: 140px;
+    margin-left: -140px;
+}
+
+.portfolio-head {
+    font-family: 'Martius', sans-serif;
+    font-size: 3.6rem;
+    color: var(--khaki);
+    text-align: center;
+    margin-bottom: 49px;
+    margin-left: -77px;
+}
+
+.portfolio-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-card .card-img-top {
+    border-radius: 10px 10px 0 0;
+    height: 250px;
+    object-fit: cover;
+}
+
+.portfolio-card .card-body {
+    padding: 20px;
+}
+
+.portfolio-card .card-title {
+    font-family: 'Martius', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--black);
+}
+
+.portfolio-card .card-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--black);
+    text-align: center;
+}
+
+.portfolio-card .badge {
+    background-color: var(--khaki);
+    color: var(--black);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+.contact-hero-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 60vh;
+    min-height: 0;
+    background: url('./images/Patterns.png') center center/cover no-repeat;
+    z-index: 1;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-    background: linear-gradient(to left, var(--khaki), var(--black));
-    color: var(--white);
-    border-radius: 7px;
-    padding: 0.7rem 1.2rem;
-    width: 100%;
-    cursor: pointer;
-    transition: background-position 3s ease-in-out, color 0.3s ease;
-  }
-  .phase-title .chevron {
-    font-size: 1.3rem;
-    margin-left: 1rem;
-    color: var(--white);
-    transition: transform 0.3s;
-    cursor: pointer;
-  }
-  .phase-title.active .chevron {
-    transform: rotate(180deg);
-  }
-  .phase-list {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
-    padding-left: 0;
+    justify-content: center;
+    border-bottom: 7px solid var(--khaki);
+}
+
+.contact-heading {
+    font-family: 'Martius', sans-serif;
+    color: var(--khaki);
+    margin-bottom: 210px;
+    font-size: 32px;
+}
+
+.contact-main-section {
+    position: absolute;
+    left: 0;
+    top: 50vh;
+    width: 100vw;
+    height: 20vh;
+    z-index: 1;
     margin: 0;
-  }
-  .phase-list.expanded {
-    max-height: 500px;
-    opacity: 1;
-    margin-top: 0.7rem;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
-  }
-  .phase-list li {
-    font-size: 0.98rem;
-    margin-bottom: 0.2rem;
-    color: var(--black);
-    font-family: 'Kangu', sans-serif;
-    text-transform: uppercase;
-  }
-  .phase-list p {
-    font-size: 0.93rem;
-    margin-bottom: 0.3rem;
-    color: var(--black);
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 1px;
-  }
+    box-shadow: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0;
+}
+
+.contact-main-section .contact-col-left {
+    border-left: 2.1px solid var(--khaki);
+    border-bottom: 2.1px solid var(--khaki);
+    border-top: 2.1px solid var(--khaki);
+    border-radius: 18px;
+}
+
+.contact-main-section .contact-col-right {
+    border-top: 2.1px solid var(--khaki);
+    border-bottom: 2.1px solid var(--khaki);
+    border-right: 2.1px solid var(--khaki);
+    border-radius: 18px;
+}
+
+.contact-form-row {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 1100px;
+    z-index: 2;
+    background: rgba(255,255,255,0.97);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px -8px rgba(0,0,0,0.08);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: 0;
+}
+
+.contact-form,
+.contact-info-box {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 2rem 1rem;
 }
 
 @media (max-width: 991.98px) {
-
-    .timeline-buttons .phase-button {
-        display: none;
+    .contact-form-row {
+        flex-direction: column;
+        width: 98vw;
+        max-width: 98vw;
+        padding: 0;
     }
-
-    .timeline-buttons .phase-indicator {
-        display: none;
+    .contact-form,
+    .contact-info-box {
+        padding: 1rem 0.2rem;
     }
+}
 
-    .phase-title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+@media (max-width: 767.98px) {
+    .contact-hero-section,
+    .contact-main-section {
+        height: 50vh;
+        min-height: 0;
+    }
+    .contact-form-row {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 99vw;
+        max-width: 99vw;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+    }
+    .contact-form,
+    .contact-info-box {
+        padding: 1rem 0.2rem;
+    }
+}
+
+/* Prevent footer from showing */
+.site-footer {
+    display: none !important;
+}
+
+/* --- CONTACT FORM THEME STYLES --- */
+.contact-form label {
+    font-family: 'Martius', 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--black);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+    padding-right: 4px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--black);
+    background: var(--white);
+    border: 2px solid var(--khaki);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: none;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--black);
+    background: #fffbe6;
+    box-shadow: 0 0 0 2px var(--khaki);
+}
+
+.contact-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='16' height='16' fill='khaki' xmlns='http://www.w3.org/2000/svg'><path d='M4 6l4 4 4-4'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2em;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form button[type="submit"] {
+    background: var(--khaki);
+    color: var(--black);
+    font-family: 'Martius', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 0;
+    margin-top: 10px;
+    width: 100%;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px -2px var(--khaki);
+    letter-spacing: 1px;
+}
+
+.contact-form button[type="submit"]:hover,
+.contact-form button[type="submit"]:focus {
+    background: var(--black);
+    color: var(--khaki);
+}
+
+.contact-form ::placeholder {
+    color: #b3a800;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Remove Bootstrap default focus and border for form controls */
+.contact-form .form-control,
+.contact-form .form-select {
+    box-shadow: none !important;
+    border-width: 2px !important;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        font-size: 0.98rem;
+        padding: 10px 10px;
+    }
+    .contact-form button[type="submit"] {
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+}
+
+/* --- CONTACT COMPANY INFO THEME STYLES --- */
+.contact-info-box {
+    background: #fffbe6;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px -8px rgba(200, 180, 30, 0.10);
+    padding: 2.5rem 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info-box img {
+    max-width: 110px;
+    margin-bottom: 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px -2px var(--khaki);
+    background: #fff;
+    padding: 0.5rem;
+}
+
+.company-name {
+    font-family: 'Martius', 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--khaki);
+    margin-bottom: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.contact-info-box .info-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.05rem;
+    margin-bottom: 0.7rem;
+    color: var(--black);
+    word-break: break-word;
+}
+
+.contact-info-box .info-item i {
+    color: var(--khaki);
+    margin-right: 10px;
+    font-size: 1.2rem;
+    min-width: 22px;
+    text-align: center;
+}
+
+.contact-info-box .opening-hours {
+    margin-top: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.contact-info-box .opening-hours strong {
+    color: var(--black);
+    font-size: 1.08rem;
+    letter-spacing: 0.5px;
+}
+
+.contact-info-box .opening-hours div {
+    font-size: 0.98rem;
+    color: #7a6e00;
+    margin-top: 2px;
+}
+
+@media (max-width: 991.98px) {
+    .contact-info-box {
+        padding: 1.5rem 0.5rem;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .company-name {
         font-size: 1.1rem;
-        margin-bottom: 0.3rem;
-        background: linear-gradient(to left, var(--khaki), var(--black));
-        color: var(--white);
-        border-radius: 7px;
-        padding: 0.7rem 1.2rem;
-        width: 100%;
-        cursor: pointer;
-        transition: background-position 3s ease-in-out, color 0.3s ease;
     }
+}
 
-    .phase-title .chevron {
-        font-size: 1.3rem;
-        margin-left: 1rem;
-        color: var(--white);
-        transition: transform 0.3s;
-        cursor: pointer;
+@media (max-width: 767.98px) {
+    .contact-info-box img {
+        max-width: 80px;
     }
-
-    .phase-title.active .chevron {
-        transform: rotate(180deg);
+    .company-name {
+        font-size: 1rem;
     }
-
-    .phase-list {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-in-out;
-    }
-
-    .phase-list p {
-        margin-bottom: 0.3rem;
+    .contact-info-box .info-item,
+    .contact-info-box .opening-hours div,
+    .contact-info-box .opening-hours strong {
+        font-size: 0.95rem;
     }
 }
