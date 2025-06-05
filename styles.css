@@ -830,14 +830,29 @@ img[alt="Graphic-3"] {
         font-size: 1rem;
     }
 
-    .about-header {
-        font-size: 1rem;
+    .commitment .about-header {
+        font-size: 36px;
         padding: 1.2rem 0;
         margin: 1.2rem 0;
     }
 
-    .about-header-span {
-        font-size: 1.1rem;
+    .commitment .about-header-span {
+        font-size: 30px;
+        padding-left: 4px;
+    }
+
+    .duties-mobile {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        overflow: auto;
+    }
+
+    .quote-section {
+        margin-top: 2.5rem;
+    }
+
+    .duties {
+        height: auto !important;
     }
 }
 
@@ -855,14 +870,14 @@ img[alt="Graphic-3"] {
 }
 
 @media (max-width: 480px) {
-    .about-header {
-        font-size: 1.3rem;
-        padding: 0.7rem 0;
-        margin: 0.7rem 0;
+    .commitment .about-header {
+        font-size: 36px;
+        padding: 1.2rem 0;
+        margin: 1.2rem 0;
     }
 
-    .about-header-span {
-        font-size: 0.9rem;
+    .commitment about-header-span {
+        font-size: 30px;
     }
 }
 
@@ -1307,7 +1322,7 @@ img[alt="Graphic-3"] {
     color: var(--khaki);
     text-align: center;
     margin-bottom: 20px;
-    margin-left: -150px;
+    margin-left: -75px;
 }
 
 .values .values-text {
@@ -1710,4 +1725,154 @@ img[alt="Graphic-3"] {
     .contact-info-box .opening-hours strong {
         font-size: 0.95rem;
     }
+}
+/* --- Portfolio Section Mobile Fixes --- */
+@media (max-width: 575.98px) {
+  .portfolio {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    overflow-x: hidden;
+  }
+  .portfolio-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    flex-wrap: wrap;
+  }
+  .portfolio-head {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    margin-left: 0 !important;
+  }
+  .portfolio-card {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 0.5rem;
+  }
+  .portfolio-card .card-img-top {
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem 0.75rem 0 0;
+    object-fit: cover;
+    min-height: 180px;
+    max-height: 220px;
+  }
+  .portfolio-card .card-body {
+    padding: 1rem 0.75rem 0.75rem 0.75rem;
+  }
+  .portfolio-card .card-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+  .portfolio-card .card-text {
+    font-size: 0.98rem;
+    margin-bottom: 0.5rem;
+  }
+  .portfolio-card .badge {
+    font-size: 0.85rem;
+    padding: 0.4em 0.8em;
+    border-radius: 0.5em;
+  }
+}
+
+/* --- Contact Page Mobile Responsiveness --- */
+@media (max-width: 575.98px) {
+  /* Ensure hero section and heading are always visible at the top */
+  .contact-hero-section,
+  .contact-main-section,
+  .contact-form-row {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    min-height: unset !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+  .contact-hero-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 2rem 0.5rem 1rem 0.5rem !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border-bottom: 7px solid var(--khaki);
+    z-index: 2;
+  }
+  .contact-heading {
+    font-size: 1.3rem !important;
+    padding: 0.5rem !important;
+    margin-bottom: 4rem !important;
+    margin-top: 2rem !important;
+    color: var(--khaki);
+    text-align: center !important;
+    z-index: 2;
+    position: static !important;
+  }
+  .contact-main-section {
+    padding: 0.5rem 0 !important;
+    margin-top: 2rem !important;
+    background: #fff;
+    z-index: 1;
+  }
+  .contact-form-row {
+    flex-direction: column !important;
+    margin: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .contact-col-left,
+  .contact-col-right {
+    padding: 1.2rem 0.5rem !important;
+    margin-top: 2rem !important;
+    border: none !important;
+    min-width: 0;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .contact-form {
+    padding: 0 !important;
+    border-radius: 0.5rem !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .contact-info-box {
+    text-align: center !important;
+    padding: 1rem 0.5rem !important;
+    border-radius: 0.5rem !important;
+    box-shadow: none !important;
+    background: #fffbe6 !important;
+  }
+  .contact-info-box img {
+    max-width: 80px !important;
+    margin-bottom: 1rem !important;
+  }
+  .company-name {
+    font-size: 1.1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .contact-info-box .mb-2,
+  .contact-info-box .mt-4,
+  .contact-info-box strong,
+  .contact-info-box div {
+    font-size: 0.98rem !important;
+  }
+  /* Ensure form fields and button are full width */
+  .contact-form .form-control,
+  .contact-form .form-select,
+  .contact-form button {
+    width: 100% !important;
+    font-size: 1rem;
+  }
 }
