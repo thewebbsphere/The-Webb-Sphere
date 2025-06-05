@@ -253,7 +253,7 @@ body {
 .studio {
     color: var(--black); 
     align-self: flex-end;
-    font-family: 'Kangu', sans-serif;
+    font-family: 'Martius', sans-serif;
     margin-right: 20px;
 }
 
@@ -282,8 +282,8 @@ body {
 
 img[alt="Graphic-3"] {
     position: relative;
-    right: -290px;
-    top: -140px;
+    right: -297px;
+    top: -110px;
 }
 
 /*********************************************************************** About Section ***********************************************************************/
